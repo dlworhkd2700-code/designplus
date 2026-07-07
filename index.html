@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SignCraft — Signage Design &amp; Lighting Total Solution</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="page" data-screen-label="Signcraft — neon">
+
+  <!-- HERO -->
+  <div class="hero">
+    <img class="hero-bg" src="assets/img/hero/hero-bg-a-bokeh.png" alt="">
+    <div class="hero-overlay" id="heroOverlay"></div>
+
+    <!-- NAV -->
+    <div class="nav">
+      <div class="nav-logo"></div>
+      <a href="#contact" class="btn-gradient" id="navCta">Get a quote</a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <!-- LEARN MORE badge -->
+    <div class="learn-more" id="learnMoreBadge">
+      <svg width="100" height="100" class="learn-more-svg" viewBox="0 0 100 100">
+        <defs><path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"></path></defs>
+        <text font-size="9.5" letter-spacing="2" fill="rgba(245,243,255,.7)" font-family="Inter, sans-serif" font-weight="600">
+          <textPath href="#circlePath">LEARN MORE • LEARN MORE •</textPath>
+        </text>
+      </svg>
+      <div class="learn-more-plus" id="learnMorePlus">+</div>
+    </div>
+
+    <!-- TITLE BLOCK -->
+    <div class="hero-title-block">
+      <div class="eyebrow" id="eyebrow">SIGNAGE DESIGN &amp; LIGHTING TOTAL SOLUTION</div>
+      <div class="hero-title" id="heroTitle">DESIGN<br><span class="hero-title-accent" id="heroTitleAccent">PLUS</span></div>
+      <div class="since"><div>| since 2014</div></div>
+      <div class="tagline">창의적인 디자인과 세심한 시공으로<br>사업장의 가치를 빛나게 합니다.</div>
+    </div>
+
+    <!-- STAT CARD -->
+    <div class="stat-card" id="statCard">
+      <div><div class="stat-num">220+</div><div class="stat-label">signs<br>fabricated</div></div>
+      <div><div class="stat-num">12</div><div class="stat-label">years in<br>business</div></div>
+      <div><div class="stat-num stat-num-sm">6–8wk</div><div class="stat-label">avg.<br>turnaround</div></div>
+      <div class="stat-note">
+        <div class="stat-dot" id="statDot"></div>
+        <div>Neon, LED and fabrication under one roof</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PORTFOLIO -->
+  <div id="work" class="section-portfolio">
+    <div class="portfolio-head">
+      <div class="heading" id="portfolioHeading">portfolio</div>
+      <div class="cat-filters" id="catFilters"></div>
+    </div>
+    <div class="portfolio-grid" id="portfolioGrid"></div>
+  </div>
+
+  <!-- SERVICES -->
+  <div id="services" class="services-grid">
+    <div class="surface-card service-card">
+      <div class="service-title" id="serviceTitle1">LED 간판</div>
+      <div class="service-desc">Custom neon script and illuminated channel letters that glow after dark.</div>
+    </div>
+    <div class="surface-card service-card">
+      <div class="service-title" id="serviceTitle2">Wayfinding</div>
+      <div class="service-desc">Directional and interior systems for campuses and offices.</div>
+    </div>
+    <div class="surface-card service-card">
+      <div class="service-title" id="serviceTitle3">Fabrication</div>
+      <div class="service-desc">In-house metal, acrylic and LED production and install.</div>
+    </div>
+  </div>
+
+  <!-- PROCESS -->
+  <div id="process" class="section-process">
+    <div class="heading" id="processHeading">작업 진행순서</div>
+    <div class="process-grid">
+      <div><div class="step-num" id="stepNum1">01</div><div class="step-title">미팅 일정협의</div><div class="step-desc">현장 미팅</div></div>
+      <div><div class="step-num" id="stepNum2">02</div><div class="step-title">견적</div><div class="step-desc">가견적 제시 및 조율</div></div>
+      <div><div class="step-num" id="stepNum3">03</div><div class="step-title">Design</div><div class="step-desc">디자이너와 1:1 상담을 통해 디자인제작</div></div>
+      <div><div class="step-num" id="stepNum4">04</div><div class="step-title">제작/시공</div><div class="step-desc">디자인 최종시안 확정 후 제작 및 시공</div></div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div id="contact" class="surface-card contact-card">
+    <div>
+      <div class="contact-title">Ready to<br>light it up?</div>
+      <div class="contact-info">대전광역시 동구 삼성동 314-1번지 1층<br>010.2258.2700<br>gon9005@naver.com</div>
+    </div>
+    <div class="contact-form-col">
+      <div class="contact-success" id="contactSuccess" hidden>Thanks — we'll be in touch within one business day.</div>
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/mlgyvkew" method="POST">
+        <input type="hidden" name="_subject" value="New quote request — SignCraft site">
+        <div class="form-row">
+          <input type="text" placeholder="Name" id="fieldName" name="name" autocomplete="off">
+          <input type="text" placeholder="Email" id="fieldEmail" name="email" autocomplete="off">
+        </div>
+        <textarea placeholder="Tell us about your project" id="fieldMessage" name="message" rows="4"></textarea>
+        <div class="form-error" id="formError" hidden></div>
+        <button type="submit" class="btn-gradient btn-submit" id="submitBtn">Request a quote</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>© 2026 SignCraft</span><span>Work · Services · Process · Studio · Contact</span>
+  </div>
+
+</div>
+
+<!-- TWEAK PANEL -->
+<div class="tweaks" id="tweaksPanel">
+  <button class="tweaks-toggle" id="tweaksToggle" type="button" aria-label="Toggle design tweaks">⚙</button>
+  <div class="tweaks-body" id="tweaksBody">
+    <div class="tweaks-section-label">Mood</div>
+
+    <div class="tweak-group">
+      <div class="tweak-label">Accent palette</div>
+      <div class="swatch-row" id="accentSwatches"></div>
+    </div>
+
+    <div class="tweak-group">
+      <div class="tweak-label">Hero mood</div>
+      <div class="pill-row" id="heroMoodRow"></div>
+    </div>
+
+    <div class="tweak-group">
+      <div class="tweak-label">Card style</div>
+      <div class="pill-row" id="cardStyleRow"></div>
+    </div>
+
+    <div class="tweaks-section-label">Layout</div>
+
+    <div class="tweak-group">
+      <div class="tweak-label">Heading style</div>
+      <div class="pill-row" id="headingStyleRow"></div>
+    </div>
+
+    <div class="tweak-group">
+      <div class="tweak-label">Portfolio columns</div>
+      <div class="pill-row" id="portfolioColsRow"></div>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
