@@ -23,18 +23,18 @@
     { title: 'Bakery blade sign', category: 'Hospitality', slug: 'port-bakery-blade' },
     { title: 'Parking garage wayfinding', category: 'Workplace', slug: 'port-parking-wayfinding' },
 
-    { title: 'Flower studio signage', category: 'Retail', slug: 'port-flower-studio', ext: 'jpg' },
-    { title: 'Restaurant sign lettering', category: 'Hospitality', slug: 'port-korean-soul-food', ext: 'jpg' },
-    { title: 'Boutique storefront sign', category: 'Retail', slug: 'port-sihwa', ext: 'jpg' },
-    { title: 'Fragrance boutique sign', category: 'Retail', slug: 'port-ariel-fragrance', ext: 'jpg' },
-    { title: 'Beauty academy sign', category: 'Workplace', slug: 'port-beauty-academy', ext: 'jpg' },
-    { title: 'Hair salon signage', category: 'Retail', slug: 'port-hair-salon', ext: 'jpg' },
-    { title: 'Care facility signage', category: 'Workplace', slug: 'port-nursing-home', ext: 'jpg' },
-    { title: 'Restaurant signage', category: 'Hospitality', slug: 'port-yookmimi', ext: 'jpg' },
-    { title: 'Flower shop signage', category: 'Retail', slug: 'port-flower-shop', ext: 'jpg' },
-    { title: 'Real estate office sign', category: 'Workplace', slug: 'port-real-estate', ext: 'jpg' },
-    { title: 'Coin karaoke signage', category: 'Hospitality', slug: 'port-coin-karaoke', ext: 'jpg' },
-    { title: 'Hair color studio sign', category: 'Retail', slug: 'port-mini-color', ext: 'jpg' }
+    { title: 'Flower studio signage', category: 'Retail', slug: '1', ext: 'jpg' },
+    { title: 'Restaurant sign lettering', category: 'Hospitality', slug: '2', ext: 'jpg' },
+    { title: 'Boutique storefront sign', category: 'Retail', slug: '3', ext: 'jpg' },
+    { title: 'Fragrance boutique sign', category: 'Retail', slug: '4', ext: 'jpg' },
+    { title: 'Beauty academy sign', category: 'Workplace', slug: '5', ext: 'jpg' },
+    { title: 'Hair salon signage', category: 'Retail', slug: '6', ext: 'jpg' },
+    { title: 'Care facility signage', category: 'Workplace', slug: '7', ext: 'jpg' },
+    { title: 'Restaurant signage', category: 'Hospitality', slug: '8', ext: 'jpg' },
+    { title: 'Flower shop signage', category: 'Retail', slug: '9', ext: 'jpg' },
+    { title: 'Real estate office sign', category: 'Workplace', slug: '10', ext: 'jpg' },
+    { title: 'Coin karaoke signage', category: 'Hospitality', slug: '11', ext: 'jpg' },
+    { title: 'Hair color studio sign', category: 'Retail', slug: '12', ext: 'jpg' }
   ];
 
   // crop offsets extracted from the saved image-slot state (percent, relative to center)
