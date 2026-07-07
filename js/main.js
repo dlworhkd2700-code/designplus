@@ -96,6 +96,7 @@
   var eyebrow = $('eyebrow');
   var heroTitle = $('heroTitle');
   var heroTitleAccent = $('heroTitleAccent');
+  var heroPhone = $('heroPhone');
   var learnMoreBadge = $('learnMoreBadge');
   var learnMorePlus = $('learnMorePlus');
   var statCard = $('statCard');
@@ -131,6 +132,7 @@
     heroTitle.style.font = "900 " + heroTitleSizeByMood[mood] + " 'Archivo',sans-serif";
     heroTitleAccent.style.backgroundImage = accentGradient;
     learnMorePlus.style.color = accent1;
+    heroPhone.style.color = accent1;
     statDot.style.background = accent1;
     navCta.style.background = accentGradient;
     submitBtn.style.background = accentGradient;
@@ -338,6 +340,14 @@
   // collapse the tweaks panel by default on small screens so it doesn't cover content
   if (window.innerWidth < 768) {
     tweaksBody.hidden = true;
+  }
+
+  // design tweak panel is an internal review tool, not for public visitors —
+  // only show it when explicitly requested via ?tweaks=1
+  var tweaksPanel = $('tweaksPanel');
+  var showTweaks = /(^|[?&])tweaks=1(&|$)/.test(window.location.search);
+  if (!showTweaks) {
+    tweaksPanel.style.display = 'none';
   }
 
   render();
