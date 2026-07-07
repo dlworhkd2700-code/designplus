@@ -198,6 +198,7 @@
       img.alt = item.title;
       var y = cropY[item.slug] || 0;
       img.style.objectPosition = '50% ' + (50 + y) + '%';
+      img.addEventListener('click', function () { openLightbox(img.src, item.title); });
       imgWrap.appendChild(img);
 
       var caption = document.createElement('div');
@@ -313,6 +314,28 @@
         submitBtn.disabled = false;
         submitBtn.textContent = 'Request a quote';
       });
+  });
+
+  // ---------- Lightbox ----------
+  var lightbox = $('lightbox');
+  var lightboxImg = $('lightboxImg');
+  var lightboxClose = $('lightboxClose');
+
+  function openLightbox(src, alt) {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || '';
+    lightbox.hidden = false;
+  }
+  function closeLightbox() {
+    lightbox.hidden = true;
+    lightboxImg.src = '';
+  }
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', function (e) {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !lightbox.hidden) closeLightbox();
   });
 
   // ---------- Mobile nav ----------
