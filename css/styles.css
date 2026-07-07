@@ -290,6 +290,11 @@ input::placeholder, textarea::placeholder { color: rgba(245,243,255,.35); }
 .contact-title {
   font: 800 32px 'Archivo', sans-serif;
   letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+.contact-subtitle {
+  font: 500 14px 'Inter', sans-serif;
+  color: rgba(245,243,255,.5);
   margin-bottom: 14px;
 }
 .contact-info {
