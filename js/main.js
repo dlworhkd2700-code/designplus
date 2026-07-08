@@ -117,6 +117,7 @@
   var navCta = $('navCta');
   var portfolioHeading = $('portfolioHeading');
   var processHeading = $('processHeading');
+  var boardHeading = $('boardHeading');
   var catFilters = $('catFilters');
   var portfolioGrid = $('portfolioGrid');
   var serviceTitle1 = $('serviceTitle1');
@@ -128,7 +129,8 @@
   var stepNum4 = $('stepNum4');
   var contactCard = $('contact');
   var submitBtn = $('submitBtn');
-  var surfaceCards = [serviceTitle1.closest('.surface-card'), serviceTitle2.closest('.surface-card'), serviceTitle3.closest('.surface-card'), contactCard];
+  var boardPanel = document.querySelector('.board-panel');
+  var surfaceCards = [serviceTitle1.closest('.surface-card'), serviceTitle2.closest('.surface-card'), serviceTitle3.closest('.surface-card'), contactCard, boardPanel];
 
   function render() {
     var accent1 = state.accentPalette[0];
@@ -149,6 +151,8 @@
     statDot.style.background = accent1;
     navCta.style.background = accentGradient;
     submitBtn.style.background = accentGradient;
+    boardWriteBtn.style.background = accentGradient;
+    boardSubmitBtn.style.background = accentGradient;
 
     learnMoreBadge.hidden = !showHeroExtras;
     statCard.hidden = !showHeroExtras;
@@ -159,6 +163,9 @@
     processHeading.style.font = headingDef.font;
     processHeading.style.letterSpacing = headingDef.ls;
     processHeading.style.textTransform = headingDef.tt;
+    boardHeading.style.font = headingDef.font;
+    boardHeading.style.letterSpacing = headingDef.ls;
+    boardHeading.style.textTransform = headingDef.tt;
 
     surfaceCards.forEach(function (el) {
       el.style.background = surface.bg;
@@ -326,6 +333,82 @@
       .finally(function () {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Request a quote';
+      });
+  });
+
+  // ---------- Q&A board (private inquiry modal) ----------
+  var boardWriteBtn = $('boardWriteBtn');
+  var boardModal = $('boardModal');
+  var boardModalClose = $('boardModalClose');
+  var boardForm = $('boardForm');
+  var boardTitle = $('boardTitle');
+  var boardName = $('boardName');
+  var boardContact = $('boardContact');
+  var boardMessage = $('boardMessage');
+  var boardFormError = $('boardFormError');
+  var boardSuccess = $('boardSuccess');
+  var boardSubmitBtn = $('boardSubmitBtn');
+
+  function openBoardModal() { boardModal.hidden = false; }
+  function closeBoardModal() { boardModal.hidden = true; }
+
+  boardWriteBtn.addEventListener('click', openBoardModal);
+  boardModalClose.addEventListener('click', closeBoardModal);
+  boardModal.addEventListener('click', function (e) {
+    if (e.target === boardModal) closeBoardModal();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !boardModal.hidden) closeBoardModal();
+  });
+
+  boardForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var title = boardTitle.value.trim();
+    var name = boardName.value.trim();
+    var contact = boardContact.value.trim();
+    var message = boardMessage.value.trim();
+
+    [boardTitle, boardName, boardContact, boardMessage].forEach(function (el) {
+      el.classList.remove('invalid');
+    });
+
+    if (!title || !name || !contact || !message) {
+      boardFormError.textContent = '모든 항목을 입력해주세요.';
+      boardFormError.hidden = false;
+      if (!title) boardTitle.classList.add('invalid');
+      if (!name) boardName.classList.add('invalid');
+      if (!contact) boardContact.classList.add('invalid');
+      if (!message) boardMessage.classList.add('invalid');
+      return;
+    }
+
+    boardFormError.hidden = true;
+    boardSubmitBtn.disabled = true;
+    boardSubmitBtn.textContent = '등록 중…';
+
+    fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(boardForm)
+    })
+      .then(function (res) {
+        if (res.ok) {
+          boardForm.hidden = true;
+          boardSuccess.hidden = false;
+          if (window.SignCraftBoard) {
+            window.SignCraftBoard.addEntry(title, name);
+          }
+        } else {
+          throw new Error('Board submission failed');
+        }
+      })
+      .catch(function () {
+        boardFormError.textContent = '문의 등록 중 오류가 발생했습니다 — 010.2258.2700으로 직접 연락 부탁드립니다.';
+        boardFormError.hidden = false;
+      })
+      .finally(function () {
+        boardSubmitBtn.disabled = false;
+        boardSubmitBtn.textContent = '등록하기';
       });
   });
 

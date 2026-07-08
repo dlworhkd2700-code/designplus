@@ -76,6 +76,28 @@
     <div class="portfolio-grid" id="portfolioGrid"></div>
   </div>
 
+  <!-- BOARD WRITE MODAL -->
+  <div class="board-modal" id="boardModal" hidden>
+    <div class="board-modal-panel">
+      <div class="board-modal-head">
+        <div class="board-modal-title">문의 글쓰기</div>
+        <button type="button" class="board-modal-close" id="boardModalClose" aria-label="닫기">&times;</button>
+      </div>
+      <div class="board-success" id="boardSuccess" hidden>문의가 접수되었습니다. 빠르게 답변드리겠습니다.</div>
+      <form class="board-form" id="boardForm" action="https://formspree.io/f/mlgyvkew" method="POST">
+        <input type="hidden" name="_subject" value="새 문의 — 질문게시판">
+        <input type="text" name="title" id="boardTitle" placeholder="제목" autocomplete="off">
+        <div class="board-form-row">
+          <input type="text" name="name" id="boardName" placeholder="이름" autocomplete="off">
+          <input type="text" name="contact" id="boardContact" placeholder="연락처 또는 이메일" autocomplete="off">
+        </div>
+        <textarea name="message" id="boardMessage" placeholder="문의 내용을 입력해주세요" rows="5"></textarea>
+        <div class="board-form-error" id="boardFormError" hidden></div>
+        <button type="submit" class="btn-gradient board-submit-btn" id="boardSubmitBtn">등록하기</button>
+      </form>
+    </div>
+  </div>
+
   <!-- SERVICES -->
   <div id="services" class="services-grid">
     <div class="surface-card service-card">
@@ -92,14 +114,28 @@
     </div>
   </div>
 
-  <!-- PROCESS -->
-  <div id="process" class="section-process">
-    <div class="heading" id="processHeading">작업 진행순서</div>
-    <div class="process-grid">
-      <div class="process-step"><div class="step-num" id="stepNum1">01</div><div class="step-title">미팅 일정협의</div><div class="step-desc">현장 미팅</div></div>
-      <div class="process-step"><div class="step-num" id="stepNum2">02</div><div class="step-title">견적</div><div class="step-desc">가견적 제시 및 조율</div></div>
-      <div class="process-step"><div class="step-num" id="stepNum3">03</div><div class="step-title">Design</div><div class="step-desc">디자이너와 1:1 상담을 통해 디자인제작</div></div>
-      <div class="process-step"><div class="step-num" id="stepNum4">04</div><div class="step-title">제작/시공</div><div class="step-desc">디자인 최종시안 확정 후 제작 및 시공</div></div>
+  <!-- PROCESS + Q&A BOARD -->
+  <div class="process-board-row">
+    <div id="process" class="section-process">
+      <div class="heading" id="processHeading">작업 진행순서</div>
+      <div class="process-grid">
+        <div class="process-step"><div class="step-num" id="stepNum1">01</div><div class="step-title">미팅 일정협의</div><div class="step-desc">현장 미팅</div></div>
+        <div class="process-step"><div class="step-num" id="stepNum2">02</div><div class="step-title">견적</div><div class="step-desc">가견적 제시 및 조율</div></div>
+        <div class="process-step"><div class="step-num" id="stepNum3">03</div><div class="step-title">Design</div><div class="step-desc">디자이너와 1:1 상담을 통해 디자인제작</div></div>
+        <div class="process-step"><div class="step-num" id="stepNum4">04</div><div class="step-title">제작/시공</div><div class="step-desc">디자인 최종시안 확정 후 제작 및 시공</div></div>
+      </div>
+    </div>
+
+    <div id="board" class="section-board">
+      <div class="heading" id="boardHeading">질문게시판</div>
+      <div class="board-panel surface-card">
+        <div class="board-list-head">
+          <span>번호</span><span>제목</span><span>작성자</span><span>작성일</span>
+        </div>
+        <div class="board-list-body" id="boardListBody"></div>
+        <div class="board-empty" id="boardEmpty">등록된 문의가 없습니다. 궁금하신 점을 남겨주시면 빠르게 답변드릴게요.</div>
+        <button type="button" class="btn-gradient board-write-btn" id="boardWriteBtn">글쓰기</button>
+      </div>
     </div>
   </div>
 
@@ -173,6 +209,7 @@
   </div>
 </div>
 
+<script type="module" src="js/board-firebase.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
